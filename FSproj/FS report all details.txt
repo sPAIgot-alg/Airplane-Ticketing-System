@@ -1,0 +1,471 @@
+The provided code seems to be a part of an airline ticket management system. It includes functions for deleting a ticket (`DelTicket()`) and displaying the main menu (`Display()`), as well as functions for user login (`Login()`) and user registration (`Registration()`). However, the code provided is incomplete, as some portions are missing.
+
+Here is a breakdown of the provided functions:
+
+1. `DelTicket()`: This function is used to delete a ticket from the booking details. It prompts the user to enter the serial number of the ticket they want to delete, checks if the serial number exists in the records, and then deletes the corresponding ticket information from the file.
+
+2. `Display(int c)`: This function displays the main menu of the airline ticket management system. It uses a do-while loop to repeatedly display the menu options and execute the corresponding actions based on the user's choice. The function calls other functions like `NewTicket()`, `EditTicket()`, `DelTicket()`, `printTic()`, and `LuggageDetails()` based on the user's selection.
+
+3. `Login(int c)`: This function is used for user login. It reads login details from a file, prompts the user to enter their username and password, and verifies the credentials. If the credentials match, the user is logged in, and the `Display()` function is called to show the main menu.
+
+4. `Registration(int c)`: This function is used for user registration. It prompts the user to enter their username and email address, performs validation checks on the input, and stores the registration details in a file.
+
+It's worth noting that the code provided is incomplete and lacks necessary declarations, such as the definition of the `User` struct and the initialization of the `AllTickets` array used in `DelTicket()`. Additionally, the code may have some logical errors or missing parts that could affect its functionality.
+
+
+
+
+
+Certainly! The code you provided appears to be a part of an airline ticket management system. Let's go through it step by step to understand its functionality.
+
+The code snippet you shared includes three functions: `DelTicket()`, `Display()`, and `Login()`. It seems to be a part of a larger program that handles user registration, login, ticket creation, editing, deletion, and display.
+
+1. `DelTicket()`: This function is responsible for deleting a ticket based on the provided serial number. Here's a breakdown of its key steps:
+   - It initializes variables and opens the file "Booking_Details.txt" to count the number of previously recorded lines (bookings).
+   - It prompts the user to enter the serial number of the booking they want to delete.
+   - It iterates through the bookings to find a match with the entered serial number.
+   - If a match is found, the corresponding booking information is cleared by assigning empty values to the respective struct fields.
+   - If the serial number is not found, it displays a message and prompts the user again.
+   - It then opens the "Booking_Details.txt" file, truncates its content (deletes everything), and rewrites the remaining bookings (excluding the deleted one) to the file.
+   - Finally, it displays a success message.
+
+2. `Display(int c)`: This function represents the main menu of the program, where users can choose various options. Here's a breakdown of its functionality:
+   - It clears the console and displays the main menu options.
+   - It waits for user input and executes the corresponding option:
+     - Option 1: Calls the `NewTicket(c)` function to create a new ticket.
+     - Option 2: Calls the `EditTicket()` function to edit an existing ticket.
+     - Option 3: Calls the `DelTicket()` function to delete a ticket.
+     - Option 4: Calls the `printTic(Counter)` function to print or display the booked tickets.
+     - Option 5: Calls the `LuggageDetails()` function to display luggage allowance details.
+     - Option 6: Displays an exit message and breaks the loop, effectively exiting the program.
+
+3. `Login(int c)`: This function handles the login process for the users. Here's a breakdown of its functionality:
+   - It reads the login details from the "Login_Details.txt" file and stores them in an array of `User` structs.
+   - It prompts the user to enter their username and password.
+   - It compares the entered username and password with the stored login details to determine if the login is valid.
+   - If the login is successful, it displays a success message, waits for a few seconds, and then calls the `Display(c)` function to show the main menu.
+   - If the login fails, it displays an error message, clears the entered username and password, and prompts the user to try again.
+
+In addition to the functions you provided, there might be other functions (not included in the snippet) that handle ticket creation, editing, printing, and other aspects of the airline ticket management system.
+
+Please note that the provided code snippet is not complete and doesn't include the complete implementation of the mentioned functions.
+
+
+
+
+
+
+
+
+Algorithm
+Certainly! Here's a simplified algorithm for the provided code:
+
+1. Start the program.
+2. Read the login details from the "Login_Details.txt" file and store them in an array of `User` structs.
+3. Prompt the user to enter their username and password.
+4. Check if the entered username and password match any of the stored login details.
+5. If the login is successful, display a success message and wait for a few seconds.
+6. Clear the console and display the main menu options.
+7. Wait for user input.
+8. If the user selects option 1:
+   a. Call the `NewTicket()` function to create a new ticket.
+9. If the user selects option 2:
+   a. Call the `EditTicket()` function to edit an existing ticket.
+10. If the user selects option 3:
+   a. Call the `DelTicket()` function to delete a ticket.
+11. If the user selects option 4:
+   a. Call the `printTic(Counter)` function to print or display the booked tickets.
+12. If the user selects option 5:
+   a. Call the `LuggageDetails()` function to display luggage allowance details.
+13. If the user selects option 6:
+   a. Display an exit message.
+   b. End the program.
+14. If the user selects an invalid option, display an error message and return to the main menu.
+15. If the user chooses to create a new ticket (option 1):
+   a. Prompt the user to enter the ticket details.
+   b. Store the ticket details in the appropriate struct fields.
+   c. Increment the counter for the number of bookings.
+   d. Write the ticket details to the "Booking_Details.txt" file.
+   e. Display a success message.
+   f. Return to the main menu.
+16. If the user chooses to edit a ticket (option 2):
+   a. Prompt the user to enter the serial number of the ticket to be edited.
+   b. Search for the ticket with the matching serial number.
+   c. If found, prompt the user to enter the new ticket details.
+   d. Update the ticket details in the appropriate struct fields.
+   e. Rewrite the updated ticket details to the "Booking_Details.txt" file.
+   f. Display a success message.
+   g. Return to the main menu.
+17. If the user chooses to delete a ticket (option 3):
+   a. Prompt the user to enter the serial number of the ticket to be deleted.
+   b. Search for the ticket with the matching serial number.
+   c. If found, clear the ticket details by assigning empty values to the struct fields.
+   d. Rewrite the remaining ticket details (excluding the deleted one) to the "Booking_Details.txt" file.
+   e. Display a success message.
+   f. Return to the main menu.
+18. If the user chooses to print or display booked tickets (option 4):
+   a. Read the ticket details from the "Booking_Details.txt" file.
+   b. Display the booked tickets.
+   c. Return to the main menu.
+19. If the user chooses to display luggage allowance details (option 5):
+   a. Display the luggage allowance details.
+   b. Return to the main menu.
+20. End the program.
+
+This algorithm provides a high-level overview of the flow and functionality of the code. The actual implementation might have additional details and considerations not captured here.
+
+
+Data Structures used 
+In the provided code of the airline ticketing system, several data structures are used:
+
+1. Structs: The code defines a struct called `User` to represent login details, and another struct called `Booking` to represent ticket booking details. Structs are used to group related data together.
+
+2. Arrays: The code uses arrays to store multiple instances of the `User` struct. The `User` array holds the login details of multiple users.
+
+3. File I/O: The code reads data from and writes data to text files ("Login_Details.txt" and "Booking_Details.txt"). The file structure is used to store and retrieve login details and booking information.
+
+Overall, the code primarily relies on arrays and file I/O for storing and managing data in the airline ticketing system.
+
+
+Testing 
+
+Sure! Here's an example of software testing for the airline ticketing system:
+
+1. Unit Testing:
+   - Test the functions/methods individually to ensure they work correctly and return the expected outputs.
+   - Test the input validation for functions that accept user input to ensure it handles invalid input appropriately.
+   - Test edge cases, such as when the user inputs empty values or maximum/minimum allowed values.
+   - Test the file I/O operations to verify that data is correctly read from and written to the files.
+
+2. Integration Testing:
+   - Test the interaction between different components of the system, such as the login and booking modules.
+   - Verify that data is transferred correctly between modules and that the system functions as expected when modules are connected.
+
+3. System Testing:
+   - Test the overall functionality of the system.
+   - Verify that the user can successfully log in, book a ticket, and view booking details.
+   - Test various scenarios, such as booking for different dates, different users, and different flights.
+   - Test error handling and ensure appropriate error messages are displayed to the user.
+   - Verify that data is persisted correctly and consistently between sessions.
+
+4. Performance Testing:
+   - Test the system's performance under normal and peak loads.
+   - Measure the response time of critical operations, such as login, ticket booking, and retrieval of booking details.
+   - Check the system's scalability by increasing the number of concurrent users and monitoring performance.
+
+5. Security Testing:
+   - Test the system's security measures, such as password encryption and protection against SQL injection attacks.
+   - Verify that user authentication and authorization are implemented correctly.
+   - Test for any vulnerabilities in data storage and transmission, ensuring sensitive information is protected.
+
+6. Usability Testing:
+   - Evaluate the system's user-friendliness and ease of use.
+   - Observe how users interact with the system and gather feedback on any difficulties they encounter.
+   - Test the system's responsiveness and ensure a smooth user experience.
+
+7. Regression Testing:
+   - After making changes or bug fixes, re-run previous tests to ensure that existing functionality has not been affected.
+   - Verify that the fixes or changes have resolved the reported issues without introducing new problems.
+
+These are some of the software testing approaches that can be applied to the airline ticketing system to ensure its reliability, functionality, performance, security, and usability. The specific tests and test cases would depend on the requirements and complexity of the system.
+
+
+
+
+Abstract:
+
+The airline ticketing system is a software application designed for booking and managing airline tickets. It features a client-server architecture and utilizes a database for data storage. The system offers functionalities such as user registration, flight search, ticket reservation, payment processing, booking management, and ticket cancellation. 
+
+Testing plays a vital role in ensuring the system's reliability and effectiveness. Various types of testing, including unit testing, integration testing, system testing, performance testing, security testing, usability testing, and regression testing, are conducted to verify functionality, performance, security, and user-friendliness. The system aims to provide a convenient and efficient platform for users to book and manage their travel arrangements.
+
+
+
+
+Introduction:
+
+The airline ticketing system is a software application designed to facilitate the process of booking and managing airline tickets. It is a user-friendly platform that allows customers to search for available flights, select their preferred options, make reservations, and complete the ticket purchase. The system automates various tasks involved in the ticketing process, such as checking flight availability, calculating fares, and processing payments. It aims to simplify the booking experience for customers while improving efficiency for airlines.
+
+The airline ticketing system offers a range of features to enhance the overall user experience. Users can create accounts to store their personal information and booking history, making future bookings more convenient. The system provides a comprehensive search functionality, allowing users to specify their travel preferences, such as date, destination, and class of service, to find suitable flight options. It also provides real-time information on flight availability, schedules, and fares.
+
+Once the desired flight is found, users can select their preferred seats and proceed to the payment process. The system ensures secure transactions by integrating with payment gateways to handle credit card or online payment methods. After the payment is successfully processed, users receive electronic tickets via email or through their accounts. These e-tickets contain all the necessary details, including flight information, seat assignments, and booking references.
+
+The airline ticketing system also offers functionalities for managing bookings. Users can view and modify their reservations, such as changing flight dates or requesting additional services. In case of cancellations, the system facilitates the refund process according to the airline's policies. It provides customer support channels, such as helplines or chatbots, to assist users with their inquiries or issues related to their bookings.
+
+Overall, the airline ticketing system simplifies the ticket booking process, saves time and effort for customers, and improves operational efficiency for airlines. It enhances the travel experience by providing a user-friendly interface, real-time information, secure payment options, and convenient booking management features.
+
+
+Hardware Requirements:
+- Computer with a minimum of 2 GHz processor
+- Minimum 4 GB RAM
+- Hard disk with at least 10 GB of free space
+- Monitor with a minimum resolution of 1024x768 pixels
+- Keyboard and mouse
+- Internet connectivity for accessing flight data and online payment
+
+Software Requirements:
+- Operating System: Windows 7 or above, macOS, or Linux
+- Web Browser: Google Chrome, Mozilla Firefox, or Safari
+- Database Management System: MySQL, Oracle, or PostgreSQL
+- Programming Language: Java, Python, or C#
+- Integrated Development Environment (IDE): Eclipse, IntelliJ IDEA, or Visual Studio
+- Web Server: Apache Tomcat, JBoss, or Microsoft IIS
+- Version Control System: Git, Subversion, or Mercurial
+- Text Editor: Notepad++, Sublime Text, or Visual Studio Code
+- Payment Gateway Integration: PayPal, Stripe, or any other supported gateway
+
+Note: The specific hardware and software requirements may vary depending on the scale and complexity of the project, as well as any additional features or integrations required.
+
+
+
+Here's a short algorithm for the above code:
+
+1. Start the program.
+2. Display the introduction and project details.
+3. Load the login details from the file (if it exists).
+4. Repeat the following steps until the user chooses to exit:
+   a. Display the main menu with options for registration, login, and exit.
+   b. Read the user's choice.
+   c. If the choice is 1, register a new user:
+      i. Prompt the user to enter a username and password.
+      ii. Check if the username already exists in the login details file.
+      iii. If not, save the username and password to the file and display a registration success message.
+   d. If the choice is 2, login an existing user:
+      i. Prompt the user to enter a username and password.
+      ii. Check if the username and password match any entry in the login details file.
+      iii. If a match is found, display a login success message.
+   e. If the choice is 3, exit the program.
+5. If the user successfully logged in, repeat the following steps until the user chooses to logout:
+   a. Display the ticket booking menu with options to create a ticket, view tickets, and logout.
+   b. Read the user's choice.
+   c. If the choice is 1, create a new ticket:
+      i. Prompt the user to enter passenger name, boarding city, destination city, and ticket class.
+      ii. Generate a unique ticket ID.
+      iii. Check if the ticket ID already exists.
+      iv. If not, prompt the user to select a seat and perform the payment process.
+      v. Save the ticket details, including the ticket ID, to the file.
+   d. If the choice is 2, view tickets:
+      i. Display the details of all the tickets saved in the file.
+   e. If the choice is 3, logout the user.
+6. End the program.
+
+Note: The above algorithm provides a high-level overview of the code. The implementation details, error handling, and other necessary functionalities are not included in the algorithm.
+
+
+Unit testing
+
+Sure! Here are some detailed unit testing test cases for the airline ticketing system:
+
+1. Test Case: Registering a new user
+   - Input: Username = "john123", Password = "password123"
+   - Expected Output: Registration successful
+   - Actions:
+     - Execute the registerUser() function with the provided input.
+     - Verify that the output matches the expected output.
+     - Verify that the user is added to the "Login_Details.txt" file.
+
+2. Test Case: Logging in an existing user with valid credentials
+   - Input: Username = "john123", Password = "password123"
+   - Expected Output: Login successful
+   - Actions:
+     - Execute the loginUser() function with the provided input.
+     - Verify that the output matches the expected output.
+
+3. Test Case: Logging in with invalid credentials
+   - Input: Username = "john123", Password = "wrongpassword"
+   - Expected Output: Invalid username or password
+   - Actions:
+     - Execute the loginUser() function with the provided input.
+     - Verify that the output matches the expected output.
+
+4. Test Case: Creating a new ticket with valid inputs
+   - Input: Passenger name = "John Doe", Boarding city = "New York", Destination city = "Los Angeles", Ticket class = "Business"
+   - Expected Output: Ticket creation successful
+   - Actions:
+     - Execute the createTicket() function with the provided input.
+     - Verify that the output matches the expected output.
+     - Verify that a new ticket is created and saved in the "Booking_Details.txt" file.
+     - Verify that the ticket ID is unique.
+
+5. Test Case: Creating a new ticket with invalid ticket class
+   - Input: Passenger name = "John Doe", Boarding city = "New York", Destination city = "Los Angeles", Ticket class = "First Class"
+   - Expected Output: Invalid input
+   - Actions:
+     - Execute the createTicket() function with the provided input.
+     - Verify that the output matches the expected output.
+     - Verify that no new ticket is created.
+
+6. Test Case: Making a payment with valid details
+   - Input: First name = "John", Last name = "Doe", Credit/Debit Card Number = "1234567890123456", CVV = "123"
+   - Expected Output: Payment successful
+   - Actions:
+     - Execute the Payment() function with the provided input.
+     - Verify that the output matches the expected output.
+     - Verify that the payment details are saved in the "Payment_Details.txt" file.
+
+7. Test Case: Making a payment with invalid credit/debit card number
+   - Input: First name = "John", Last name = "Doe", Credit/Debit Card Number = "12345", CVV = "123"
+   - Expected Output: Invalid CC number
+   - Actions:
+     - Execute the Payment() function with the provided input.
+     - Verify that the output matches the expected output.
+     - Verify that no payment details are saved.
+
+8. Test Case: Selecting a seat for a ticket
+   - Input: Row name = "A", Seat number = "1"
+   - Expected Output: Seat selection successful
+   - Actions:
+     - Execute the createTicket() function to reach the seat selection process.
+     - Execute the seat selection logic with the provided input.
+     - Verify that the seat is successfully selected and marked as unavailable.
+     - Verify that the selected seat is associated with the ticket.
+
+9. Test Case: Selecting an invalid seat
+   - Input: Row name = "D", Seat number = "10"
+   - Expected Output: Invalid seat
+   - Actions:
+     -
+
+ Execute the createTicket() function to reach the seat selection process.
+     - Execute the seat selection logic with the provided input.
+     - Verify that the output matches the expected output.
+     - Verify that no seat is selected for the ticket.
+
+These test cases cover various functionalities of the airline ticketing system, including user registration, login, ticket creation, payment processing, and seat selection. You can further enhance the test cases based on specific requirements and edge cases relevant to your system.
+
+Certainly! Here are shortened versions of the unit testing test cases for the airline ticketing system:
+
+1. Test user registration
+   - Actions: Register a new user with valid information.
+   - Expected Output: User registration is successful.
+
+2. Test user login
+   - Actions: Log in with valid user credentials.
+   - Expected Output: User login is successful.
+
+3. Test ticket creation
+   - Actions: Create a ticket with valid information.
+   - Expected Output: Ticket creation is successful.
+
+4. Test ticket payment
+   - Actions: Make a payment for a ticket.
+   - Expected Output: Ticket payment is successful.
+
+5. Test ticket cancellation
+   - Actions: Cancel a ticket.
+   - Expected Output: Ticket cancellation is successful.
+
+6. Test flight search
+   - Actions: Search for available flights with specific criteria.
+   - Expected Output: List of available flights matching the search criteria.
+
+7. Test ticket status update
+   - Actions: Update the status of a ticket.
+   - Expected Output: Ticket status is updated successfully.
+
+8. Test ticket details update
+   - Actions: Update the details of a ticket.
+   - Expected Output: Ticket details are updated successfully.
+
+These shortened test cases cover the basic unit testing scenarios for the airline ticketing system, focusing on individual components and their expected outputs.
+
+Integration testing
+
+Certainly! Here are shortened versions of the integration testing test cases for the airline ticketing system:
+
+1. Registering a new user and logging in
+   - Actions: Register a new user and log in with the same credentials.
+   - Expected Output: Successful registration and login.
+
+2. Creating a ticket and making a payment
+   - Actions: Log in, create a ticket, and make a payment.
+   - Expected Output: Successful ticket creation and payment.
+
+3. Creating a ticket without logging in
+   - Actions: Attempt to create a ticket without logging in.
+   - Expected Output: User not logged in, authentication required.
+
+4. Making a payment without creating a ticket
+   - Actions: Log in and try to make a payment without creating a ticket.
+   - Expected Output: No ticket found, please create a ticket first.
+
+5. Checking the ticket status after successful payment
+   - Actions: Log in, create a ticket, make a payment, and check the ticket status.
+   - Expected Output: Ticket status is "Paid" or "Confirmed".
+
+6. Checking the ticket status before making a payment
+   - Actions: Log in, create a ticket, and check the ticket status.
+   - Expected Output: Ticket status is "Pending" or "Unpaid".
+
+7. Searching for available flights
+   - Actions: Search for available flights with specific criteria.
+   - Expected Output: List of available flights matching the search criteria.
+
+8. Updating ticket details
+   - Actions: Log in, create a ticket, and update its details.
+   - Expected Output: Ticket details updated successfully.
+
+9. Cancelling a ticket
+   - Actions: Log in, create a ticket, and cancel it.
+   - Expected Output: Ticket cancelled successfully.
+
+These shortened test cases cover the main functionality of the airline ticketing system, focusing on key interactions and outcomes.
+
+
+
+
+system testing
+
+Certainly! Here are shortened versions of the system testing test cases for the airline ticketing system:
+
+1. Test user registration and login: 
+   - Actions: Register new user, login with registered credentials.
+   - Expected Output: Successful registration and login.
+
+2. Test flight search and selection: 
+   - Actions: Search and select a flight.
+   - Expected Output: Correct display of available flights and successful selection.
+
+3. Test ticket booking and payment: 
+   - Actions: Book a ticket and complete payment.
+   - Expected Output: Successful ticket booking and payment process.
+
+4. Test ticket cancellation: 
+   - Actions: Cancel a booked ticket.
+   - Expected Output: Successful ticket cancellation.
+
+5. Test ticket modification: 
+   - Actions: Modify a booked ticket.
+   - Expected Output: Successful ticket modification.
+
+6. Test itinerary generation: 
+   - Actions: Book multiple flights and verify itinerary.
+   - Expected Output: Correctly generated itinerary with flight connections.
+
+7. Test user notifications: 
+   - Actions: Trigger system events and check user notifications.
+   - Expected Output: Timely and accurate notifications for flight changes.
+
+8. Test reporting and analytics: 
+   - Actions: Generate reports and perform analysis.
+   - Expected Output: Accurate reports and meaningful insights.
+
+These shortened test cases still cover the main functionalities and goals of the system testing, but are presented in a more concise format.
+
+In conclusion, the project demonstrates a simple implementation of a ticket booking system. It allows users to register, login, and create tickets for various destinations. The project emphasizes user authentication and provides a basic interface for managing tickets.
+
+Throughout the implementation, the project covers essential programming concepts such as file handling, user input validation, and data storage. It showcases the use of file operations to store and retrieve user login details and ticket information.
+
+However, it's important to note that the provided code and algorithm represent a simplified version of a ticket booking system. In real-world scenarios, additional features like ticket availability checks, seat selection algorithms, and payment integrations would be necessary. Furthermore, robust error handling, data validation, and security measures would need to be implemented for a production-grade application.
+
+Overall, this project serves as a starting point for building a more comprehensive and sophisticated ticket booking system, providing a foundation for further enhancements and customization based on specific requirements.
+
+
+
+Email Notifications: Adding an email notification system would keep users informed about their bookings, including confirmation emails, reminders, and updates. This feature would improve communication with users and provide them with important information regarding their reservations.
+
+Booking History and User Profiles: Creating a booking history for each user would allow them to view their past reservations and easily track their travel history. Additionally, implementing user profiles would enable users to manage their personal information, preferences, and notification settings.
+
+Social Media Integration: Integrating social media features would allow users to share their ticket bookings or invite friends to join them. This could help increase the system's visibility and attract new users through word-of-mouth referrals.
+
+Multilingual Support: Adding multilingual support would make the ticket booking system accessible to users from different regions and language backgrounds. It would enhance the user experience and make the application more inclusive.
+
